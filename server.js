@@ -16,9 +16,8 @@ app.use("/screenshots", express.static(path.join(__dirname, "screenshots")));
 // rasm storage
 const screenshotDir = path.join(__dirname, "screenshots");
 if (!fs.existsSync(screenshotDir)) {
-  fs.mkdirSync(screenshotDir);//create a path 
+  fs.mkdirSync(screenshotDir); //create a path
 }
-
 
 app.post("/api/screenshot", async (req, res) => {
   const { url } = req.body;
@@ -30,7 +29,7 @@ app.post("/api/screenshot", async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       headless: true,
-      args: [ "--disable-setuid-sandbox"],
+      args: ["--disable-setuid-sandbox"],
     });
 
     const page = await browser.newPage();
