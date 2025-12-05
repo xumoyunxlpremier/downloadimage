@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot </title>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #080c54 0%, #051145 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .container {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 100%;
+    }
+
+    h1 {
+        color: gray;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .subtitle {
+        color: #666;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 1.1em;
+    }
+
+    .input-group {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        flex: 1;
+        padding: 18px 20px;
+        border: 3px solid #e0e0e0;
+        border-radius: 12px;
+        font-size: 16px;
+        transition: all 0.3s;
+    }
+
+    input[type="text"]:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    }
+
+    button {
+        padding: 18px 40px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: white;
+        background: linear-gradient(135deg, #140466, #040332);
+    }
+
+    button:hover {
+
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+
+
+    button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+
+
+
+
+    /* loading */
+    .loading {
+        display: none;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .loading.active {
+        display: block;
+    }
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #667eea;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .loading-text {
+        color: #667eea;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .info-box {
+        background: #e3f2fd;
+        border-left: 4px solid #3403d2;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 30px;
+    }
+
+    .info-box h3 {
+        color: #1c0257;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+    }
+
+    .info-box ul {
+        list-style-position: inside;
+        color: #555;
+        line-height: 1.8;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Welcome </h1>
+        <p class="subtitle">Write your url and download it</p>
+
+        <!-- input -->
+        <div class="input-group">
+            <input type="text" id="urlInput" placeholder="Sayt URL" value="">
+            <button id="downloadBtn" onclick="yuklaOl()">
+                Download
+            </button>
+        </div>
+
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <div class="loading-text">Screenshoting...</div>
+            <p style="color: #999; margin-top: 10px; font-size: 14px;">Might take few seconds...</p>
+        </div>
+
+        <!-- Ma'lumot -->
+        <div class="info-box">
+            <h3>Qanday ishlaydi?</h3>
+            <ul>
+                <li>URL kiriting va "Download" tugmasini bosing</li>
+                <li>Screenshot avtomatik yuklab olinadi</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
